@@ -8,28 +8,31 @@
   <link rel="canonical" href="https://scratchgames.it.com/">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
+    /* modal全屏样式，弹窗最大化时使用 */
     .modal-fullscreen {
-      width: 100vw !important;
-      height: 100vh !important;
-      max-width: 100vw !important;
-      max-height: 100vh !important;
-      border-radius: 0 !important;
-      padding: 0 !important;
+      width: 100vw !important; /* 宽度占满整个视口 */
+      height: 100vh !important; /* 高度占满整个视口 */
+      max-width: 100vw !important; /* 最大宽度限制为视口宽度 */
+      max-height: 100vh !important; /* 最大高度限制为视口高度 */
+      border-radius: 0 !important; /* 去除圆角 */
+      padding: 0 !important; /* 去除内边距 */
     }
+    /* modal内容全屏时的样式 */
     .modal-content-fullscreen {
-      height: 100vh !important;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
+      height: 100vh !important; /* 高度占满视口 */
+      display: flex; /* 弹性布局 */
+      flex-direction: column; /* 垂直排列 */
+      justify-content: flex-start; /* 顶部对齐 */
     }
+    /* 游戏iframe响应式样式 */
     .game-iframe-responsive {
-      display: block;
-      width: 100%;
-      aspect-ratio: 16/9;
-      min-height: 200px;
-      max-height: 70vh;
-      border-radius: 0.5rem;
-      background: #000;
+      display: block; /* 块级显示 */
+      width: 100%; /* 宽度100% */
+      aspect-ratio: 16/9; /* 默认宽高比16:9 */
+      min-height: 200px; /* 最小高度200px */
+      max-height: 70vh; /* 最大高度为视口70% */
+      border-radius: 0.5rem; /* 圆角 */
+      background: #000; /* 背景黑色，防止加载前留白 */
     }
     .modal-fullscreen .game-iframe-responsive {
       width: 100vw !important;
@@ -54,10 +57,12 @@
   </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
-  <!-- Header -->
+  <!-- Header 区域，网站顶部导航栏 -->
   <header class="bg-white shadow-md">
     <div class="max-w-4xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between">
+      <!-- 网站主标题 -->
       <h1 class="text-3xl font-bold text-blue-600">Popular Online Games</h1>
+      <!-- 顶部导航菜单 -->
       <nav class="mt-4 md:mt-0">
         <a href="#games" class="text-gray-700 hover:text-blue-500 font-medium px-3">Games</a>
         <a href="#about" class="text-gray-700 hover:text-blue-500 font-medium px-3">About</a>
@@ -65,84 +70,87 @@
     </div>
   </header>
 
-  <!-- Main Content -->
+  <!-- Main Content 主内容区 -->
   <main class="max-w-4xl mx-auto px-4 py-8">
+    <!-- 游戏区块，包含所有游戏卡片 -->
     <section id="games">
+      <!-- 区块标题 -->
       <h2 class="text-2xl font-semibold text-blue-500 mb-6">Trending Games</h2>
+      <!-- 游戏卡片网格布局 -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Game Card 1 -->
         <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col items-center">
-          <img src="images/cowz-io.png" alt="Cowz.io" class="w-full h-24 object-contain rounded mb-3">
-          <h2 class="text-lg font-bold text-blue-600 mb-1">Cowz.io</h2>
-          <p class="text-gray-500 text-sm mb-2">Survive and dominate the field in this crazy multiplayer .io game!</p>
+          <img src="images/Dodge!.png" alt="Dodge!" class="w-full h-24 object-contain rounded mb-3">
+          <h2 class="text-lg font-bold text-blue-600 mb-1">Dodge!</h2>
+          <p class="text-gray-500 text-sm mb-2">Test your reflexes and agility! Dodge incoming obstacles and survive as long as you can in this fast-paced action game.</p>
           <button onclick="openGame('game1')" class="mt-auto bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition">Play Now</button>
         </div>
         <!-- Game Card 2 -->
         <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col items-center">
-          <img src="images/fragen.png" alt="Fragen" class="w-full h-24 object-contain rounded mb-3">
-          <h2 class="text-lg font-bold text-blue-600 mb-1">Fragen</h2>
-          <p class="text-gray-500 text-sm mb-2">Test your knowledge in this fast-paced quiz game.</p>
+          <img src="images/Ninja 3.png" alt="Ninja 3" class="w-full h-24 object-contain rounded mb-3">
+          <h2 class="text-lg font-bold text-blue-600 mb-1">Ninja 3</h2>
+          <p class="text-gray-500 text-sm mb-2">Become a stealthy ninja and overcome challenging obstacles! Test your reflexes and timing in this action-packed adventure.</p>
           <button onclick="openGame('game2')" class="mt-auto bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition">Play Now</button>
         </div>
         <!-- Game Card 3 -->
         <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col items-center">
-          <img src="images/cubic-shop.png" alt="Cubic Shop" class="w-full h-24 object-contain rounded mb-3">
-          <h2 class="text-lg font-bold text-blue-600 mb-1">Cubic Shop</h2>
-          <p class="text-gray-500 text-sm mb-2">Manage your own shop in this fun simulation game.</p>
+          <img src="images/Get Hired Ft.png" alt="Get Hired Ft" class="w-full h-24 object-contain rounded mb-3">
+          <h2 class="text-lg font-bold text-blue-600 mb-1">Get Hired Ft</h2>
+          <p class="text-gray-500 text-sm mb-2">Experience the journey of job hunting! Apply, interview, and get hired in this fun and interactive simulation game.</p>
           <button onclick="openGame('game3')" class="mt-auto bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition">Play Now</button>
         </div>
         <!-- Game Card 4 -->
         <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col items-center">
-          <img src="images/scratch.png" alt="Scratch Project" class="w-full h-24 object-contain rounded mb-3">
-          <h2 class="text-lg font-bold text-blue-600 mb-1">Scratch Project</h2>
-          <p class="text-gray-500 text-sm mb-2">Enjoy creative fun with this Scratch community game.</p>
+          <img src="images/scratch.png" alt="Geometry Dash" class="w-full h-24 object-contain rounded mb-3">
+          <h2 class="text-lg font-bold text-blue-600 mb-1">Geometry Dash</h2>
+          <p class="text-gray-500 text-sm mb-2">Jump, fly, and flip your way through dangerous passages and spiky obstacles! Test your rhythm and reflexes in this fast-paced platformer.</p>
           <button onclick="openGame('game4')" class="mt-auto bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition">Play Now</button>
         </div>
         <!-- Game Card 5 -->
         <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col items-center">
-          <img src="images/lumber-harvest-tree-cutting-game.png" alt="Lumber Harvest" class="w-full h-24 object-contain rounded mb-3">
-          <h2 class="text-lg font-bold text-blue-600 mb-1">Lumber Harvest</h2>
-          <p class="text-gray-500 text-sm mb-2">Cut trees and build your own lumber empire!</p>
+          <img src="images/Color Split.png" alt="Color Split" class="w-full h-24 object-contain rounded mb-3">
+          <h2 class="text-lg font-bold text-blue-600 mb-1">Color Split</h2>
+          <p class="text-gray-500 text-sm mb-2">Test your color matching skills! Split and merge colors to solve creative puzzles and reach new high scores.</p>
           <button onclick="openGame('game5')" class="mt-auto bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition">Play Now</button>
         </div>
         <!-- Game Card 6 -->
         <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col items-center">
-          <img src="images/hack-and-climb.png" alt="Hack and Climb" class="w-full h-24 object-contain rounded mb-3">
-          <h2 class="text-lg font-bold text-blue-600 mb-1">Hack and Climb</h2>
-          <p class="text-gray-500 text-sm mb-2">Climb and hack your way to the top in this action-packed adventure!</p>
+          <img src="images/Parkoor.png" alt="Parkoor" class="w-full h-24 object-contain rounded mb-3">
+          <h2 class="text-lg font-bold text-blue-600 mb-1">Parkoor</h2>
+          <p class="text-gray-500 text-sm mb-2">Run, jump, and perform amazing parkour moves! Navigate tricky platforms and show off your agility in this fast-paced game.</p>
           <button onclick="openGame('game6')" class="mt-auto bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition">Play Now</button>
         </div>
       </div>
     </section>
 
-    <!-- Game Modals -->
+    <!-- Game Modals 弹窗区，每个游戏对应一个弹窗 -->
     <div id="game1" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
       <div id="modal-game1" class="bg-white rounded-lg shadow-lg max-w-5xl w-full p-6 relative flex flex-col modal-content">
         <div class="flex justify-between items-center mb-2">
-          <h1 class="text-2xl font-bold text-blue-600">Cowz.io</h1>
+          <!-- 弹窗标题，显示游戏名称 -->
+          <h1 class="text-2xl font-bold text-blue-600">Dodge!</h1>
           <div>
+            <!-- 最大化/最小化按钮 -->
             <button onclick="toggleFullscreen('modal-game1')" class="text-gray-400 hover:text-blue-500 text-xl mr-2" title="Maximize/Minimize">&#x26F6;</button>
+            <!-- 关闭弹窗按钮 -->
             <button onclick="closeGame('game1')" class="text-gray-400 hover:text-red-500 text-2xl" title="Close">&times;</button>
           </div>
         </div>
-        <h2 class="text-lg font-semibold text-blue-500 mb-1">Survive and dominate the field in this crazy multiplayer .io game!</h2>
+        <!-- 游戏详细介绍 -->
+        <h2 class="text-lg font-semibold text-blue-500 mb-1">How long can you survive? Move quickly, avoid obstacles, and set a new high score in Dodge!</h2>
+        <!-- 游戏iframe自适应展示区 -->
         <div class="flex-1 flex flex-col mb-4">
-          <iframe 
-            src="https://games.crazygames.com/en_US/cowz-io/index.html"
-            frameborder="0"
-            allowfullscreen="true"
-            title="CrazyGames - cowz io"
-            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-presentation allow-gamepad"
-            class="game-iframe-responsive"
-            ></iframe>
+          <iframe src="https://scratch.mit.edu/projects/808804974/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
         </div>
+        <!-- 游戏详情列表 -->
         <div class="text-gray-700 text-sm">
           <h2 class="text-md font-semibold text-blue-500 mb-1">Game Details</h2>
           <ul class="list-disc pl-5">
-            <li>Genre: .io, Multiplayer, Action</li>
+            <li>Genre: Action, Arcade</li>
             <li>Platform: Web Browser (PC & Mobile)</li>
-            <li>Developer: CrazyGames</li>
-            <li>Release: 2024</li>
+            <li>Developer: Scratch Community</li>
+            <li>Languages: English</li>
+            <li>Modes: Single Player</li>
           </ul>
         </div>
       </div>
@@ -150,30 +158,24 @@
     <div id="game2" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
       <div id="modal-game2" class="bg-white rounded-lg shadow-lg max-w-5xl w-full p-6 relative flex flex-col modal-content">
         <div class="flex justify-between items-center mb-2">
-          <h1 class="text-2xl font-bold text-blue-600">Fragen</h1>
+          <h1 class="text-2xl font-bold text-blue-600">Ninja 3</h1>
           <div>
             <button onclick="toggleFullscreen('modal-game2')" class="text-gray-400 hover:text-blue-500 text-xl mr-2" title="Maximize/Minimize">&#x26F6;</button>
             <button onclick="closeGame('game2')" class="text-gray-400 hover:text-red-500 text-2xl" title="Close">&times;</button>
           </div>
         </div>
-        <h2 class="text-lg font-semibold text-blue-500 mb-1">Test your knowledge in this fast-paced quiz game.</h2>
+        <h2 class="text-lg font-semibold text-blue-500 mb-1">Master the art of stealth and agility as you leap through obstacles and defeat enemies. Only true ninjas will succeed!</h2>
         <div class="flex-1 flex flex-col mb-4">
-          <iframe 
-            src="https://games.crazygames.com/en_US/fragen/index.html"
-            frameborder="0"
-            allowfullscreen="true"
-            title="CrazyGames - fragen"
-            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-presentation allow-gamepad"
-            class="game-iframe-responsive"
-            ></iframe>
+          <iframe src="https://scratch.mit.edu/projects/1186188776/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
         </div>
         <div class="text-gray-700 text-sm">
           <h2 class="text-md font-semibold text-blue-500 mb-1">Game Details</h2>
           <ul class="list-disc pl-5">
-            <li>Genre: Quiz</li>
+            <li>Genre: Action, Platformer</li>
             <li>Platform: Web Browser (PC & Mobile)</li>
-            <li>Developer: CrazyGames</li>
-            <li>Release: 2024</li>
+            <li>Developer: Scratch Community</li>
+            <li>Languages: English</li>
+            <li>Modes: Single Player</li>
           </ul>
         </div>
       </div>
@@ -181,30 +183,24 @@
     <div id="game3" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
       <div id="modal-game3" class="bg-white rounded-lg shadow-lg max-w-5xl w-full p-6 relative flex flex-col modal-content">
         <div class="flex justify-between items-center mb-2">
-          <h1 class="text-2xl font-bold text-blue-600">Cubic Shop</h1>
+          <h1 class="text-2xl font-bold text-blue-600">Get Hired Ft</h1>
           <div>
             <button onclick="toggleFullscreen('modal-game3')" class="text-gray-400 hover:text-blue-500 text-xl mr-2" title="Maximize/Minimize">&#x26F6;</button>
             <button onclick="closeGame('game3')" class="text-gray-400 hover:text-red-500 text-2xl" title="Close">&times;</button>
           </div>
         </div>
-        <h2 class="text-lg font-semibold text-blue-500 mb-1">Manage your own shop in this fun simulation game.</h2>
+        <h2 class="text-lg font-semibold text-blue-500 mb-1">Navigate the job market, ace interviews, and land your dream job! A fun and educational simulation of the hiring process.</h2>
         <div class="flex-1 flex flex-col mb-4">
-          <iframe 
-            src="https://games.crazygames.com/en_US/cubic-shop/index.html"
-            frameborder="0"
-            allowfullscreen="true"
-            title="CrazyGames - cubic shop"
-            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-presentation allow-gamepad"
-            class="game-iframe-responsive"
-            ></iframe>
+          <iframe src="https://scratch.mit.edu/projects/1123702585/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
         </div>
         <div class="text-gray-700 text-sm">
           <h2 class="text-md font-semibold text-blue-500 mb-1">Game Details</h2>
           <ul class="list-disc pl-5">
-            <li>Genre: Simulation</li>
+            <li>Genre: Simulation, Education</li>
             <li>Platform: Web Browser (PC & Mobile)</li>
-            <li>Developer: CrazyGames</li>
-            <li>Release: 2024</li>
+            <li>Developer: Scratch Community</li>
+            <li>Languages: English</li>
+            <li>Modes: Single Player</li>
           </ul>
         </div>
       </div>
@@ -212,30 +208,24 @@
     <div id="game4" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
       <div id="modal-game4" class="bg-white rounded-lg shadow-lg max-w-5xl w-full p-6 relative flex flex-col modal-content">
         <div class="flex justify-between items-center mb-2">
-          <h1 class="text-2xl font-bold text-blue-600">Scratch Project</h1>
+          <h1 class="text-2xl font-bold text-blue-600">Geometry Dash</h1>
           <div>
             <button onclick="toggleFullscreen('modal-game4')" class="text-gray-400 hover:text-blue-500 text-xl mr-2" title="Maximize/Minimize">&#x26F6;</button>
             <button onclick="closeGame('game4')" class="text-gray-400 hover:text-red-500 text-2xl" title="Close">&times;</button>
           </div>
         </div>
-        <h2 class="text-lg font-semibold text-blue-500 mb-1">Enjoy creative fun with this Scratch community game.</h2>
+        <h2 class="text-lg font-semibold text-blue-500 mb-1">Dodge obstacles and keep the beat! Can you survive the rhythm-based challenges and reach the finish line?</h2>
         <div class="flex-1 flex flex-col mb-4">
-          <iframe 
-            src="https://scratch.mit.edu/projects/1185431027/embed"
-            frameborder="0"
-            allowfullscreen="true"
-            title="Scratch Project 1185431027"
-            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-presentation"
-            class="game-iframe-responsive"
-            ></iframe>
+          <iframe src="https://scratch.mit.edu/projects/1185431027/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
         </div>
         <div class="text-gray-700 text-sm">
           <h2 class="text-md font-semibold text-blue-500 mb-1">Game Details</h2>
           <ul class="list-disc pl-5">
-            <li>Genre: Creative</li>
+            <li>Genre: Rhythm, Platformer</li>
             <li>Platform: Web Browser (PC & Mobile)</li>
             <li>Developer: Scratch Community</li>
-            <li>Release: 2024</li>
+            <li>Languages: English</li>
+            <li>Modes: Single Player</li>
           </ul>
         </div>
       </div>
@@ -243,30 +233,24 @@
     <div id="game5" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
       <div id="modal-game5" class="bg-white rounded-lg shadow-lg max-w-5xl w-full p-6 relative flex flex-col modal-content">
         <div class="flex justify-between items-center mb-2">
-          <h1 class="text-2xl font-bold text-blue-600">Lumber Harvest</h1>
+          <h1 class="text-2xl font-bold text-blue-600">Color Split</h1>
           <div>
             <button onclick="toggleFullscreen('modal-game5')" class="text-gray-400 hover:text-blue-500 text-xl mr-2" title="Maximize/Minimize">&#x26F6;</button>
             <button onclick="closeGame('game5')" class="text-gray-400 hover:text-red-500 text-2xl" title="Close">&times;</button>
           </div>
         </div>
-        <h2 class="text-lg font-semibold text-blue-500 mb-1">Cut trees and build your own lumber empire!</h2>
+        <h2 class="text-lg font-semibold text-blue-500 mb-1">Split and merge colors to solve creative puzzles. Challenge your mind and enjoy a colorful, brain-teasing experience!</h2>
         <div class="flex-1 flex flex-col mb-4">
-          <iframe 
-            src="https://games.crazygames.com/en_US/lumber-harvest-tree-cutting-game/index.html"
-            frameborder="0"
-            allowfullscreen="true"
-            title="CrazyGames - lumber harvest tree cutting game"
-            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-presentation allow-gamepad"
-            class="game-iframe-responsive"
-            ></iframe>
+          <iframe src="https://scratch.mit.edu/projects/1115168891/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
         </div>
         <div class="text-gray-700 text-sm">
           <h2 class="text-md font-semibold text-blue-500 mb-1">Game Details</h2>
           <ul class="list-disc pl-5">
-            <li>Genre: Simulation</li>
+            <li>Genre: Puzzle, Color</li>
             <li>Platform: Web Browser (PC & Mobile)</li>
-            <li>Developer: CrazyGames</li>
-            <li>Release: 2024</li>
+            <li>Developer: Scratch Community</li>
+            <li>Languages: English</li>
+            <li>Modes: Single Player</li>
           </ul>
         </div>
       </div>
@@ -274,30 +258,24 @@
     <div id="game6" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
       <div id="modal-game6" class="bg-white rounded-lg shadow-lg max-w-5xl w-full p-6 relative flex flex-col modal-content">
         <div class="flex justify-between items-center mb-2">
-          <h1 class="text-2xl font-bold text-blue-600">Hack and Climb</h1>
+          <h1 class="text-2xl font-bold text-blue-600">Parkoor</h1>
           <div>
             <button onclick="toggleFullscreen('modal-game6')" class="text-gray-400 hover:text-blue-500 text-xl mr-2" title="Maximize/Minimize">&#x26F6;</button>
             <button onclick="closeGame('game6')" class="text-gray-400 hover:text-red-500 text-2xl" title="Close">&times;</button>
           </div>
         </div>
-        <h2 class="text-lg font-semibold text-blue-500 mb-1">Climb and hack your way to the top in this action-packed adventure!</h2>
+        <h2 class="text-lg font-semibold text-blue-500 mb-1">Show off your parkour skills! Run, jump, and climb through challenging levels filled with obstacles and surprises.</h2>
         <div class="flex-1 flex flex-col mb-4">
-          <iframe 
-            src="https://games.crazygames.com/en_US/hack-and-climb/index.html"
-            frameborder="0"
-            allowfullscreen="true"
-            title="CrazyGames - hack and climb"
-            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-presentation allow-gamepad"
-            class="game-iframe-responsive"
-            ></iframe>
+          <iframe src="https://scratch.mit.edu/projects/1158698608/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
         </div>
         <div class="text-gray-700 text-sm">
           <h2 class="text-md font-semibold text-blue-500 mb-1">Game Details</h2>
           <ul class="list-disc pl-5">
-            <li>Genre: Action, Adventure</li>
+            <li>Genre: Action, Parkour</li>
             <li>Platform: Web Browser (PC & Mobile)</li>
-            <li>Developer: CrazyGames</li>
-            <li>Release: 2024</li>
+            <li>Developer: Scratch Community</li>
+            <li>Languages: English</li>
+            <li>Modes: Single Player</li>
           </ul>
         </div>
       </div>
@@ -333,6 +311,9 @@
       // 退出全屏时自动最小化
       var modal = document.getElementById('modal-' + id);
       if(modal) modal.classList.remove('modal-fullscreen');
+      // 返回主页面并刷新页面
+      window.location.hash = '#games';
+      window.location.reload();
     }
     function toggleFullscreen(modalId) {
       var modal = document.getElementById(modalId);
